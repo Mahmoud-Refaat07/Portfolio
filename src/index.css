@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.bg-logo {
+  background-image: url("/src/assets/logo-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.my-pic {
+  background-image: url("/src/assets/my-pic.jpg");
+  background-size: cover;
+  background-position: center;
+}
