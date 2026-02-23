@@ -8,8 +8,9 @@ import {
   Newspaper,
   ArrowRight,
   Mail,
+  ArrowUp,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import htmlIcon from "./assets/html.png";
 import cssIcon from "./assets/css.png";
 import javascriptIcon from "./assets/javascirpt.png";
@@ -26,25 +27,38 @@ import githubIcon from "./assets/github.png";
 import chatifyPicture from "./assets/chatify.png";
 import eCommercePicture from "./assets/ecommerce.png";
 import flixoraPicture from "./assets/flixora.png";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut", delay },
-  }),
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeOut", delay },
-  }),
-};
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [showUpArrow, setShowUpArrow] = useState(false);
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    visible: (delay = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay },
+    }),
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: (delay = 0) => ({
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut", delay },
+    }),
+  };
+
+  // Scrolling to up
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowUpArrow(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showUpArrow]);
+
   return (
     <>
       {/* Hero Section */}
@@ -660,6 +674,22 @@ const App = () => {
           </p>
         </motion.div>
       </footer>
+      <AnimatePresence>
+        {showUpArrow && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1.1 }}
+            transition={{ stiffness: 300 }}
+            exit={{ opacity: 0 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-1 right-1 md:bottom-6 md:right-6 bg-indigo-300/50 opacity-5 w-6 h-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-indigo-200 shadow-md hover:shadow-indigo-900"
+          >
+            <ArrowUp className="size-4 text-indigo-400 hover:text-indigo-800" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 };
