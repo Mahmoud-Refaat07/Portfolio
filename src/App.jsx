@@ -6,6 +6,7 @@ import {
   CodeXml,
   Wrench,
   Newspaper,
+  ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import htmlIcon from "./assets/html.png";
@@ -21,6 +22,9 @@ import expressjsIcon from "./assets/express.png";
 import mongodbIcon from "./assets/mongodb.png";
 import gitIcon from "./assets/git.png";
 import githubIcon from "./assets/github.png";
+import chatifyPicture from "./assets/chatify.png";
+import eCommercePicture from "./assets/ecommerce.png";
+import flixoraPicture from "./assets/flixora.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -329,6 +333,108 @@ const App = () => {
                   {label}
                 </span>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section className="w-full bg-slate-50 py-24 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-semibold mb-4 text-slate-900 text-center"
+          >
+            Projects
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0.1}
+            className="text-slate-400 mb-16 text-center"
+          >
+            A few things I've built
+          </motion.p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                src: chatifyPicture,
+                title: "Chat Application",
+                desc: "Real-time chat app built with React & Node.js",
+                href: "https://chatify-eta-bay.vercel.app",
+                tag: "React · Node.js",
+              },
+              {
+                src: eCommercePicture,
+                title: "E-Commerce App",
+                desc: "Full-featured online store with cart and checkout",
+                href: "https://e-commerce-store-smoky-xi.vercel.app",
+                tag: "React · Tailwind",
+              },
+              {
+                src: flixoraPicture,
+                title: "Movies & TV Shows",
+                desc: "Browse and discover movies and TV shows",
+                href: "https://movies-app-production-defb.up.railway.app/",
+                tag: "Next.js · API",
+              },
+            ].map(({ src, title, desc, href, tag }, i) => (
+              <motion.a
+                key={title}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i * 0.15}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-indigo-200 hover:shadow-xl transition-shadow duration-300"
+              >
+                {/* Image */}
+                <div className="overflow-hidden h-52">
+                  <motion.img
+                    src={src}
+                    alt={title}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+
+                {/* Card Body */}
+                <div className="p-6">
+                  {/* Tag */}
+                  <span className="text-xs text-indigo-500 font-medium tracking-wide uppercase">
+                    {tag}
+                  </span>
+
+                  {/* Title */}
+                  <h3 className="mt-2 text-lg font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors duration-200">
+                    {title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-1 text-sm text-slate-500">{desc}</p>
+
+                  {/* Link hint */}
+                  <div className="mt-4 flex items-center gap-2 text-xs text-indigo-500 font-medium">
+                    View Project
+                    <span className="group-hover:translate-x-1 transition-transform duration-200">
+                      <ArrowRight size={12} />
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
             ))}
           </div>
         </div>
