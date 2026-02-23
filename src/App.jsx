@@ -7,6 +7,7 @@ import {
   Wrench,
   Newspaper,
   ArrowRight,
+  Mail,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import htmlIcon from "./assets/html.png";
@@ -179,7 +180,6 @@ const App = () => {
           </motion.div>
         </div>
       </section>
-
       {/* OVERVIEW Section */}
       <section className="w-full bg-slate-900 text-slate-200 py-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
@@ -208,7 +208,6 @@ const App = () => {
           </motion.p>
         </div>
       </section>
-
       {/* About Section */}
       <section className="w-full bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto text-center">
@@ -270,7 +269,6 @@ const App = () => {
           </div>
         </div>
       </section>
-
       {/* Skills */}
       <section className="w-full bg-white py-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
@@ -337,7 +335,6 @@ const App = () => {
           </div>
         </div>
       </section>
-
       {/* Projects */}
       <section className="w-full bg-slate-50 py-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
@@ -439,7 +436,7 @@ const App = () => {
           </div>
         </div>
       </section>
-
+      {/* Contact me */}
       <section className="w-full bg-slate-900 text-slate-200 py-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
@@ -537,7 +534,7 @@ const App = () => {
                   </label>
                   <input
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="example@mail.com"
                     className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors duration-200"
                   />
                 </div>
@@ -569,6 +566,90 @@ const App = () => {
           </div>
         </div>
       </section>
+      {/* Footer */}
+      <footer className="w-full bg-slate-950 text-slate-400 py-10 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex items-center gap-3"
+          >
+            <div className="bg-logo w-8 h-8" />
+            <span className="text-slate-300 font-medium tracking-wide">
+              Mahmoud <span className="text-indigo-400">Refaat</span>
+            </span>
+          </motion.div>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0.1}
+            className="text-xs tracking-wide text-slate-600 text-center"
+          >
+            © 2026 Mahmoud Refaat. All rights reserved.
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0.2}
+            className="flex items-center gap-4"
+          >
+            {[
+              {
+                href: "https://www.linkedin.com/in/mahmoud-refaat07",
+                icon: <Linkedin className="w-4 h-4" />,
+                title: "LinkedIn",
+              },
+              {
+                href: "https://github.com/Mahmoud-Refaat07",
+                icon: <Github className="w-4 h-4" />,
+                title: "Github",
+              },
+              {
+                href: "https://facebook.com/ANONYMOUSLY.MRG",
+                icon: <Facebook className="w-4 h-4" />,
+                title: "Facebook",
+              },
+              {
+                href: "mailto:mahmoud.refaat.wk@gmail.com",
+                icon: <Mail className="w-4 h-4" />,
+                title: "Email",
+              },
+            ].map(({ href, icon, title }) => (
+              <motion.a
+                key={title}
+                href={href}
+                target="_blank"
+                title={title}
+                whileHover={{ y: -3, color: "#818cf8" }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="text-slate-500 hover:text-indigo-400 transition-colors duration-200"
+              >
+                {icon}
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto mt-8 pt-6 border-t border-slate-800 flex justify-center"
+        >
+          <p className="text-xs text-slate-700 tracking-widest uppercase">
+            Built with React · Tailwind · Framer Motion
+          </p>
+        </motion.div>
+      </footer>
     </>
   );
 };
