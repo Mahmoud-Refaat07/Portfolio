@@ -1,87 +1,256 @@
-import { Linkedin, Facebook, Github } from "lucide-react";
+import {
+  Linkedin,
+  Facebook,
+  Github,
+  PencilOff,
+  CodeXml,
+  Wrench,
+  Newspaper,
+} from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut", delay },
+  }),
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut", delay },
+  }),
+};
 
 const App = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full min-h-screen relative bg-neutral-50 overflow-hidden">
-        {/* Black Background */}
-        <div
+      <section className="w-full min-h-screen relative bg-slate-50 overflow-hidden">
+        <motion.div
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
           className="
-            absolute inset-0 bg-cyan-950
+            absolute inset-0 bg-indigo-600/10
             md:w-[55%] md:left-auto md:right-0
             md:[clip-path:polygon(30%_0,100%_0,100%_100%,0%_100%)]
           "
-        ></div>
+        />
 
         {/* Navbar */}
-        <div className="w-full max-w-7xl mx-auto flex justify-between items-center py-6 px-6 relative z-10">
-          <div className="bg-logo w-10 h-10  rounded-sm"></div>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-7xl mx-auto flex justify-between items-center py-6 px-6 relative z-10"
+        >
+          <div className="bg-logo w-12 h-12" />
 
-          <div className="hidden md:flex gap-10 text-neutral-200 text-sm tracking-wide">
-            <p className="hover:text-white transition cursor-pointer">About</p>
-            <p className="hover:text-white transition cursor-pointer">Skills</p>
-            <p className="hover:text-white transition cursor-pointer">
-              Projects
-            </p>
-            <p className="hover:text-white transition cursor-pointer">
-              Contact
-            </p>
+          <div className="hidden md:flex gap-10 text-slate-600 text-sm tracking-wide">
+            {["About", "Skills", "Projects", "Contact"].map((item, i) => (
+              <motion.p
+                key={item}
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                custom={i * 0.1}
+                whileHover={{ color: "#4f46e5", y: -2 }}
+                className="cursor-pointer"
+              >
+                {item}
+              </motion.p>
+            ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between min-h-[80vh] gap-10">
           {/* Left Side */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl md:text-2xl font-medium text-neutral-700">
+            <motion.h3
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.1}
+              className="text-xl font-medium text-slate-600"
+            >
               Hi, I am
-            </h3>
+            </motion.h3>
 
-            <h2 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight text-neutral-900">
-              Mahmoud Refaat
-            </h2>
+            <motion.h2
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.2}
+              className="mt-4 text-4xl md:text-6xl font-bold tracking-tight text-slate-900"
+            >
+              Mahmoud <span className="text-indigo-600">Refaat</span>
+            </motion.h2>
 
-            <p className="mt-6 text-neutral-600 max-w-md mx-auto md:mx-0">
-              Front-End Developer focused on building scalable and
-              high-performance web applications.
-            </p>
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.3}
+              className="mt-6 text-slate-600 max-w-md"
+            >
+              Front-End Developer focused on scalable, high-performance web
+              applications.
+            </motion.p>
 
-            <div className="flex justify-center md:justify-start gap-6 mt-8 text-neutral-500">
-              <Linkedin className="w-6 h-6 hover:text-neutral-900 transition cursor-pointer" />
-              <Github className="w-6 h-6 hover:text-neutral-900 transition cursor-pointer" />
-              <Facebook className="w-6 h-6 hover:text-neutral-900 transition cursor-pointer" />
-            </div>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.4}
+              className="flex justify-center md:justify-start gap-6 mt-8 text-slate-500"
+            >
+              {[
+                {
+                  href: "https://www.linkedin.com/in/mahmoud-refaat07",
+                  icon: <Linkedin className="w-6 h-6" />,
+                  title: "LinkedIn",
+                },
+                {
+                  href: "https://github.com/Mahmoud-Refaat07",
+                  icon: <Github className="w-6 h-6" />,
+                  title: "Github",
+                },
+                {
+                  href: "https://facebook.com/ANONYMOUSLY.MRG",
+                  icon: <Facebook className="w-6 h-6" />,
+                  title: "Facebook",
+                },
+                {
+                  href: "https://drive.google.com/file/d/1qlgX-BZPSTxyquFHwM07Qm1iUSfLcQWN/view?usp=drive_link",
+                  icon: <Newspaper className="w-6 h-6" />,
+                  title: "Download CV",
+                },
+              ].map(({ href, icon, title }) => (
+                <motion.a
+                  key={title}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={title}
+                  whileHover={{ y: -4, color: "#4f46e5" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {icon}
+                </motion.a>
+              ))}
+            </motion.div>
           </div>
 
-          {/* Right Side */}
-          <div>
-            <div className="my-pic w-52 h-52 md:w-80 md:h-80 rounded-full border border-neutral-800 bg-neutral-900/40 backdrop-blur-sm"></div>
-          </div>
+          {/* Right Side — floating picture */}
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            animate="visible"
+            custom={0.3}
+          >
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="my-pic w-52 h-52 md:w-80 md:h-80 rounded-full border border-slate-200 bg-white shadow-xl"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* OVERVIEW Section */}
+      <section className="w-full bg-slate-900 text-slate-200 py-24 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-semibold mb-10 tracking-tight"
+          >
+            Overview
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0.2}
+            className="text-slate-400 leading-relaxed max-w-4xl"
+          >
+            I build modern, scalable, and high-performance web applications
+            using React.js and Next.js. I focus on clean UI architecture,
+            performance, accessibility, and delivering real business value
+            through code.
+          </motion.p>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="w-full bg-cyan-950 text-neutral-200 py-20 px-6 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-semibold mb-10 tracking-tight">
-            IT BERRIES
-          </h2>
+      <section className="w-full bg-white py-24 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-semibold mb-16 text-slate-900"
+          >
+            What I Do
+          </motion.h2>
 
-          <p className="text-neutral-400 leading-relaxed max-w-4xl">
-            I am a Front-End Developer with a strong focus on building modern,
-            scalable, and high-performance web applications using React.js and
-            Next.js. I create clean, responsive, and user-centered interfaces
-            that deliver smooth and engaging user experiences across all
-            devices. I work extensively with Tailwind CSS and Sass to design
-            flexible, well-structured, and maintainable UI systems while paying
-            close attention to UI/UX details, performance optimization, and
-            accessibility best practices.
-          </p>
-        </div>
-
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-          <div className="bg-logo w-100 h-100 rounded-full"></div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: (
+                  <PencilOff className="w-10 h-10 text-indigo-600 mb-6 mx-auto" />
+                ),
+                title: "Design",
+                desc: "Clean, responsive UI with strong visual hierarchy and UX principles.",
+                delay: 0.1,
+              },
+              {
+                icon: (
+                  <CodeXml className="w-10 h-10 text-indigo-600 mb-6 mx-auto" />
+                ),
+                title: "Development",
+                desc: "Scalable React & Next.js applications built with performance in mind.",
+                delay: 0.3,
+              },
+              {
+                icon: (
+                  <Wrench className="w-10 h-10 text-indigo-600 mb-6 mx-auto" />
+                ),
+                title: "Maintenance",
+                desc: "Continuous optimization, updates, and long-term reliability.",
+                delay: 0.5,
+              },
+            ].map(({ icon, title, desc, delay }) => (
+              <motion.div
+                key={title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={delay}
+                whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="p-8 rounded-xl border border-slate-200 cursor-default"
+              >
+                {icon}
+                <h3 className="font-semibold text-xl text-slate-900 mb-4">
+                  {title}
+                </h3>
+                <p className="text-slate-600">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </>
