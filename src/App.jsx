@@ -680,13 +680,13 @@ const App = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 1.1 }}
-            transition={{ stiffness: 300 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
             exit={{ opacity: 0 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-1 right-1 md:bottom-6 md:right-6 bg-indigo-300/50 opacity-5 w-6 h-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-indigo-200 shadow-md hover:shadow-indigo-900"
+            className="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-indigo-300/50 w-9 h-9 md:w-11 md:h-11 rounded-full flex justify-center items-center cursor-pointer hover:bg-indigo-200 shadow-md hover:shadow-indigo-900"
           >
-            <ArrowUp className="size-4 text-indigo-400 hover:text-indigo-800" />
+            <ArrowUp className="size-4 md:size-5 text-indigo-400 hover:text-indigo-800" />
           </motion.button>
         )}
       </AnimatePresence>
