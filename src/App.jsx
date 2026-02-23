@@ -8,6 +8,19 @@ import {
   Newspaper,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import htmlIcon from "./assets/html.png";
+import cssIcon from "./assets/css.png";
+import javascriptIcon from "./assets/javascirpt.png";
+import typescriptIcon from "./assets/typesciript.png";
+import tailwindIcon from "./assets/tailwind.png";
+import sassIcon from "./assets/sass.png";
+import reactIcon from "./assets/reactjs.png";
+import nextjsIcon from "./assets/nextjs.png";
+import nodejsIcon from "./assets/nodejs.png";
+import expressjsIcon from "./assets/express.png";
+import mongodbIcon from "./assets/mongodb.png";
+import gitIcon from "./assets/git.png";
+import githubIcon from "./assets/github.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -248,6 +261,73 @@ const App = () => {
                   {title}
                 </h3>
                 <p className="text-slate-600">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="w-full bg-white py-24 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto text-center">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-semibold mb-4 text-slate-900"
+          >
+            Skills
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0.1}
+            className="text-slate-400 mb-16"
+          >
+            Technologies I work with
+          </motion.p>
+
+          <div className="flex justify-center flex-wrap items-center gap-6 max-w-3xl mx-auto">
+            {[
+              { src: htmlIcon, label: "HTML" },
+              { src: cssIcon, label: "CSS" },
+              { src: sassIcon, label: "Sass" },
+              { src: tailwindIcon, label: "Tailwind" },
+              { src: javascriptIcon, label: "JavaScript" },
+              { src: typescriptIcon, label: "TypeScript" },
+              { src: reactIcon, label: "React" },
+              { src: nextjsIcon, label: "Next.js" },
+              { src: nodejsIcon, label: "Node.js" },
+              { src: expressjsIcon, label: "Express" },
+              { src: mongodbIcon, label: "MongoDB" },
+              { src: gitIcon, label: "Git" },
+              { src: githubIcon, label: "GitHub" },
+            ].map(({ src, label }, i) => (
+              <motion.div
+                key={label}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i * 0.05}
+                whileHover={{ y: -6, scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 250 }}
+                className="flex flex-col items-center gap-2 group cursor-default"
+              >
+                <div className="w-20 h-20 rounded-2xl border border-slate-100 bg-slate-50 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                  <img
+                    src={src}
+                    alt={label}
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
+                <span className="text-xs text-slate-400 group-hover:text-indigo-500 transition-colors duration-200 tracking-wide">
+                  {label}
+                </span>
               </motion.div>
             ))}
           </div>
