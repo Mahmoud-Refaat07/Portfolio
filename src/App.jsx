@@ -9,6 +9,7 @@ import {
   ArrowRight,
   Mail,
   ArrowUp,
+  PhoneCall,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import htmlIcon from "./assets/html.png";
@@ -504,6 +505,11 @@ const App = () => {
                   value: "github.com/Mahmoud-Refaat07",
                   href: "https://github.com/Mahmoud-Refaat07",
                 },
+                {
+                  label: "WhatsApp",
+                  value: "01115291630",
+                  href: "https://wa.me/201115291630",
+                },
               ].map(({ label, value, href }, i) => (
                 <motion.a
                   key={label}
@@ -645,6 +651,11 @@ const App = () => {
                 href: "mailto:mahmoud.refaat.wk@gmail.com",
                 icon: <Mail className="w-4 h-4" />,
                 title: "Email",
+              },
+              {
+                href: "https://wa.me/201115291630",
+                icon: <PhoneCall className="w-4 h-4" />,
+                title: "WhatsApp",
               },
             ].map(({ href, icon, title }) => (
               <motion.a
