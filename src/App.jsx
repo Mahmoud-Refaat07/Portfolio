@@ -8,7 +8,7 @@ const App = () => {
         {/* Black Background */}
         <div
           className="
-            absolute inset-0 bg-neutral-950
+            absolute inset-0 bg-cyan-950
             md:w-[55%] md:left-auto md:right-0
             md:[clip-path:polygon(30%_0,100%_0,100%_100%,0%_100%)]
           "
@@ -62,7 +62,7 @@ const App = () => {
       </section>
 
       {/* About Section */}
-      <section className="w-full bg-neutral-950 text-neutral-200 py-20 px-6 relative overflow-hidden">
+      <section className="w-full bg-cyan-950 text-neutral-200 py-20 px-6 relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-semibold mb-10 tracking-tight">
             IT BERRIES
