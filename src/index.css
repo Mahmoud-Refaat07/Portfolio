@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .bg-logo {
-  background-image: url("/src/assets/logo-bg.png");
+  background-image: url("/src/assets/logo.png");
   background-size: cover;
   background-position: center;
 }
