@@ -71,7 +71,7 @@ const App = () => {
 
           <div className="hidden md:flex gap-10 text-slate-600 text-sm tracking-wide">
             {["About", "Skills", "Projects", "Contact"].map((item, i) => (
-              <motion.p
+              <motion.a
                 key={item}
                 variants={fadeUp}
                 initial="hidden"
@@ -79,9 +79,10 @@ const App = () => {
                 custom={i * 0.1}
                 whileHover={{ color: "#4f46e5", y: -2 }}
                 className="cursor-pointer"
+                href={`#${item.toLowerCase()}`}
               >
                 {item}
-              </motion.p>
+              </motion.a>
             ))}
           </div>
         </motion.div>
@@ -209,7 +210,7 @@ const App = () => {
         </div>
       </section>
       {/* About Section */}
-      <section className="w-full bg-white py-24 px-6">
+      <section id="about" className="w-full bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             variants={fadeUp}
@@ -270,7 +271,10 @@ const App = () => {
         </div>
       </section>
       {/* Skills */}
-      <section className="w-full bg-white py-24 px-6 overflow-hidden">
+      <section
+        id="skills"
+        className="w-full bg-white py-24 px-6 overflow-hidden"
+      >
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             variants={fadeUp}
@@ -336,7 +340,10 @@ const App = () => {
         </div>
       </section>
       {/* Projects */}
-      <section className="w-full bg-slate-50 py-24 px-6 overflow-hidden">
+      <section
+        id="projects"
+        className="w-full bg-slate-50 py-24 px-6 overflow-hidden"
+      >
         <div className="max-w-6xl mx-auto">
           <motion.h2
             variants={fadeUp}
@@ -437,7 +444,10 @@ const App = () => {
         </div>
       </section>
       {/* Contact me */}
-      <section className="w-full bg-slate-900 text-slate-200 py-24 px-6 overflow-hidden">
+      <section
+        id="contact"
+        className="w-full bg-slate-900 text-slate-200 py-24 px-6 overflow-hidden"
+      >
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <motion.h2
