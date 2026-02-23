@@ -439,6 +439,136 @@ const App = () => {
           </div>
         </div>
       </section>
+
+      <section className="w-full bg-slate-900 text-slate-200 py-24 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight"
+          >
+            Contact
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0.1}
+            className="text-slate-400 mb-16 max-w-md"
+          >
+            Have a project in mind or just want to say hi? Feel free to reach
+            out.
+          </motion.p>
+
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-8">
+              {[
+                {
+                  label: "Email",
+                  value: "mahmoud.refaat.wk@gmail.com",
+                  href: "mailto:mahmoud.refaat.wk@gmail.com",
+                },
+                {
+                  label: "LinkedIn",
+                  value: "linkedin.com/in/mahmoud-refaat07",
+                  href: "https://www.linkedin.com/in/mahmoud-refaat07",
+                },
+                {
+                  label: "GitHub",
+                  value: "github.com/Mahmoud-Refaat07",
+                  href: "https://github.com/Mahmoud-Refaat07",
+                },
+              ].map(({ label, value, href }, i) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={i * 0.15}
+                  whileHover={{ x: 6 }}
+                  transition={{ type: "spring", stiffness: 250 }}
+                  className="flex flex-col gap-1 group"
+                >
+                  <span className="text-xs text-indigo-400 tracking-widest uppercase">
+                    {label}
+                  </span>
+                  <span className="text-slate-300 group-hover:text-indigo-400 transition-colors duration-200">
+                    {value}
+                  </span>
+                  <span className="w-0 group-hover:w-full h-px bg-indigo-500 transition-all duration-300" />
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Right — Form */}
+            <motion.form
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.2}
+              className="space-y-5"
+            >
+              <div className="space-y-5">
+                {/* Name */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-xs tracking-widest uppercase text-slate-400">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors duration-200"
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-xs tracking-widest uppercase text-slate-400">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors duration-200"
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-xs tracking-widest uppercase text-slate-400">
+                    Message
+                  </label>
+                  <textarea
+                    rows={5}
+                    placeholder="Tell me about your project..."
+                    className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors duration-200 resize-none"
+                  />
+                </div>
+              </div>
+
+              {/* Submit */}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                type="submit"
+                className="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl text-sm font-medium tracking-wide transition-colors duration-200"
+              >
+                Send Message
+              </motion.button>
+            </motion.form>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
