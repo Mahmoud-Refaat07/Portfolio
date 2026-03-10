@@ -410,7 +410,7 @@ const App = () => {
                 title: "Fitness Ai Application",
                 desc: "Build fitness plans with ai agents",
                 href: "https://fitness-trainer-ai-jet.vercel.app",
-                tag: "Next.js · Vapi · Clerk · Convest ",
+                tag: "Next.js · Vapi ",
               },
             ].map(({ src, title, desc, href, tag }, i) => (
               <motion.a
