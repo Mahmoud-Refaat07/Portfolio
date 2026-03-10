@@ -28,6 +28,7 @@ import githubIcon from "./assets/github.png";
 import chatifyPicture from "./assets/chatify.png";
 import eCommercePicture from "./assets/ecommerce.png";
 import flixoraPicture from "./assets/flixora.png";
+import fitnessAiPicture from "./assets/fittnes-ai.png";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -401,8 +402,15 @@ const App = () => {
                 src: flixoraPicture,
                 title: "Movies & TV Shows",
                 desc: "Browse and discover movies and TV shows",
-                href: "https://movies-app-production-defb.up.railway.app/",
-                tag: "Next.js · API",
+                href: "https://movies-app-production-defb.up.railway.app",
+                tag: "React · API",
+              },
+              {
+                src: fitnessAiPicture,
+                title: "Fitness Ai Application",
+                desc: "Build fitness plans with ai agents",
+                href: "https://fitness-trainer-ai-jet.vercel.app",
+                tag: "Next.js . Vapi . Clerk . Convest ",
               },
             ].map(({ src, title, desc, href, tag }, i) => (
               <motion.a
