@@ -402,7 +402,7 @@ const App = () => {
                 src: flixoraPicture,
                 title: "Movies & TV Shows",
                 desc: "Browse and discover movies and TV shows",
-                href: "https://movies-app-production-defb.up.railway.app",
+                href: "https://movies-app-mauve-eta-46.vercel.app/",
                 tag: "React · API",
               },
               {
