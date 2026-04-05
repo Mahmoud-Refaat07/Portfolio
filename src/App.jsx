@@ -29,6 +29,7 @@ import chatifyPicture from "./assets/chatify.png";
 import eCommercePicture from "./assets/ecommerce.png";
 import flixoraPicture from "./assets/flixora.png";
 import fitnessAiPicture from "./assets/fittnes-ai.png";
+import uiLibraryPicture from "./assets/uiLibrary.png";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -411,6 +412,13 @@ const App = () => {
                 desc: "Build fitness plans with ai agents",
                 href: "https://fitness-trainer-ai-jet.vercel.app",
                 tag: "Next.js · Vapi ",
+              },
+              {
+                src: uiLibraryPicture,
+                title: "UI Library",
+                desc: "A collection of reusable React components",
+                href: "https://agent-69d209c86cb62cb1989--dynamic-sawine-51bb04.netlify.app/",
+                tag: "Storebook · ReactAria",
               },
             ].map(({ src, title, desc, href, tag }, i) => (
               <motion.a
