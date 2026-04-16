@@ -157,7 +157,7 @@ const App = () => {
                   title: "Github",
                 },
                 {
-                  href: "https://facebook.com/ANONYMOUSLY.MRG",
+                  href: "https://www.facebook.com/mohref07",
                   icon: <Facebook className="w-6 h-6" />,
                   title: "Facebook",
                 },
@@ -412,7 +412,6 @@ const App = () => {
                 href: "https://fitness-trainer-ai-jet.vercel.app",
                 tag: "Next.js · Vapi ",
               },
-            
             ].map(({ src, title, desc, href, tag }, i) => (
               <motion.a
                 key={title}
@@ -652,7 +651,7 @@ const App = () => {
                 title: "Github",
               },
               {
-                href: "https://facebook.com/ANONYMOUSLY.MRG",
+                href: "https://www.facebook.com/mohref07",
                 icon: <Facebook className="w-4 h-4" />,
                 title: "Facebook",
               },
