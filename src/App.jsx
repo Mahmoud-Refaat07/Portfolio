@@ -162,7 +162,7 @@ const App = () => {
                   title: "Facebook",
                 },
                 {
-                  href: "https://drive.google.com/file/d/1uyBoDm9KS6HUbr7Nro52gNfi1PCObafi/view",
+                  href: "https://drive.google.com/file/d/1GiBhDjQxfU6DZ3jzsowy4lhbLZLrBhtB/view?usp=sharing",
                   icon: <Newspaper className="w-6 h-6" />,
                   title: "Download CV",
                 },
